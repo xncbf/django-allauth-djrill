@@ -35,9 +35,12 @@ def send_mandrill_template_mail(template_name, to, global_merge_vars=None, merge
         to = [to]
     msg = EmailMessage(subject=subject, from_email=from_email, to=to)
     msg.template_name = template_name
-    msg.template_content = content_blocks
-    msg.global_merge_vars = global_merge_vars
-    msg.merge_vars = merge_vars
+    if content_blocks:
+        msg.template_content = content_blocks
+    if global_merge_vars:
+        msg.global_merge_vars = global_merge_vars
+    if merge_vars:
+        msg.merge_vars = merge_vars
     for option, value in six.iteritems(options):
         if option not in VALID_DJRILL_OPTIONS:
             raise ValueError('Invalid option for Mandrill template: %s' % option)
