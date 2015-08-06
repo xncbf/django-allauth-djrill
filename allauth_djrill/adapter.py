@@ -28,22 +28,22 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
         # Allow for overriding with '' or None
         if template_prefix in self._template_map and self._template_map[template_prefix]:
             mandrill_template = self._template_map[template_prefix]
-            mandrill_context = {}
+            merge_vars = {}
             for key, value in six.iteritems(context):
                 if key == 'current_site':
                     # This will always be in the context, but we don't want to pass it along
                     continue
                 if key == 'user':
-                    value = {'full_name': value.get_full_name()}
+                    value = value.get_full_name()
                 elif isinstance(value, (int, str)):
                     pass
                 else:
                     raise TypeError('Unknown object in allauth email context %s: %s' % (key, value))
-                mandrill_context[key] = value
+                merge_vars[key] = value
             send_mandrill_template_mail.apply_async(kwargs={
                 'template_name': mandrill_template,
                 'to': email,
-                'global_merge_vars': mandrill_context
+                'global_merge_vars': merge_vars
             })
         else:
             super(DjrillAccountAdapter, self).send_mail(template_prefix, email, context)
