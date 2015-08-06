@@ -4,7 +4,7 @@ from allauth.account.adapter import DefaultAccountAdapter
 from django.conf import settings
 from django.utils import six
 
-from .utils import send_mandrill_template_mail
+from .tasks import send_mandrill_template_mail
 
 
 DJRILL_TEMPLATE_MAP = {
