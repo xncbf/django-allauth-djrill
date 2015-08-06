@@ -7,7 +7,7 @@ django-allauth-djrill
 Installation
 ============
 
-    pip install -e https://github.com/obsidiancard/django-allauth-djrill.git
+    pip install https://github.com/obsidiancard/django-allauth-djrill/tarball/master
 
 Amend your `INSTALLED_APPS` setting:
 
