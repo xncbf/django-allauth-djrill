@@ -9,6 +9,7 @@ setup(
     name='django-allauth-djrill',
     version=VERSION,
     url=github_url,
+    license='Apache',
     description='Django Allauth account adapter for sending email using Mandrill templates',
     long_description=open('README.rst').read(),
     keywords='django, allauth, mailchimp, mandrill, email',
@@ -25,6 +26,7 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.2',
