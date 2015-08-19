@@ -7,12 +7,18 @@ django-allauth-djrill
 Installation
 ============
 
+To install the latest release:
+
+    pip install django-allauth-djrill
+
+Alternatively, to install the latest development version:
+
     pip install https://github.com/obsidiancard/django-allauth-djrill/tarball/master
 
 Amend your `INSTALLED_APPS` setting:
 
     INSTALLED_APPS = (
-        ...
+        ...,
         'allauth_djrill',
     )
 
