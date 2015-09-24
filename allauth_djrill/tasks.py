@@ -8,7 +8,7 @@ try:
 except ImportError:
     # Emulate apply_async, in the case that celery isn't installed
     def shared_task(func):
-        def apply_async(self, args=None, kwargs=None, task_id=None, producer=None, link=None, link_error=None,
+        def apply_async(args=None, kwargs=None, task_id=None, producer=None, link=None, link_error=None,
                         shadow=None, **options):
             if not args:
                 args = []
