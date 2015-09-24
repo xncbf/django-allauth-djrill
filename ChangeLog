@@ -1,0 +1,9 @@
+2015-09-24  Joey Wilhelm  <jwilhelm@opay.io>
+
+    * Version 0.1.1 released
+    * Fixed formatting in README
+    * Fixed the apply_async emulation for when Celery isn't installed
+
+2015-08-19  Joey Wilhelm  <jwilhelm@opay.io>
+
+    * Initial release: v0.1.0
