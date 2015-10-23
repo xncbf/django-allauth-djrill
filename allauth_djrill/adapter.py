@@ -35,7 +35,7 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
                     continue
                 if key == 'user':
                     value = value.get_full_name()
-                elif isinstance(value, (int, str)):
+                elif isinstance(value, (int, basestring)):
                     pass
                 else:
                     raise TypeError('Unknown object in allauth email context %s: %s' % (key, value))
