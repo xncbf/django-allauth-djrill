@@ -27,6 +27,7 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
     def send_mail(self, template_prefix, email, context):
         # Allow for overriding with '' or None
         if template_prefix in self._template_map and self._template_map[template_prefix]:
+            from_email = getattr(settings, 'DEFAULT_FROM_EMAIL', "")
             mandrill_template = self._template_map[template_prefix]
             merge_vars = {}
             for key, value in six.iteritems(context):
@@ -43,7 +44,9 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
             send_mandrill_template_mail.apply_async(kwargs={
                 'template_name': mandrill_template,
                 'to': email,
-                'global_merge_vars': merge_vars
+                'global_merge_vars': merge_vars,
+                'from_email': from_email
             })
         else:
             super(DjrillAccountAdapter, self).send_mail(template_prefix, email, context)
+
