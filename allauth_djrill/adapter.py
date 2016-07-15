@@ -6,6 +6,7 @@ from django.utils import six
 
 from .tasks import send_mandrill_template_mail
 
+import logging
 
 DJRILL_TEMPLATE_MAP = {
     'account/email/email_confirmation': 'email_confirmation',
@@ -35,7 +36,7 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
                     # This will always be in the context, but we don't want to pass it along
                     continue
                 if key == 'user':
-                    value = value.get_full_name()
+                    value = str(value)
                 elif isinstance(value, (int, str)):
                     pass
                 else:
@@ -49,4 +50,3 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
             })
         else:
             super(DjrillAccountAdapter, self).send_mail(template_prefix, email, context)
-

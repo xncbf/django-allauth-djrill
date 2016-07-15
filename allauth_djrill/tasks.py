@@ -2,21 +2,18 @@ from __future__ import absolute_import, unicode_literals
 
 from django.core.mail import EmailMessage
 from django.utils import six
-try:
-    # Use celery if it is available
-    from celery import shared_task
-except ImportError:
-    # Emulate apply_async, in the case that celery isn't installed
-    def shared_task(func):
-        def apply_async(args=None, kwargs=None, task_id=None, producer=None, link=None, link_error=None,
-                        shadow=None, **options):
-            if not args:
-                args = []
-            if not kwargs:
-                kwargs = {}
-            return func(*args, **kwargs)
-        func.apply_async = apply_async
-        return func
+
+# Emulate apply_async, in the case that celery isn't installed
+def shared_task(func):
+    def apply_async(args=None, kwargs=None, task_id=None, producer=None, link=None, link_error=None,
+                    shadow=None, **options):
+        if not args:
+            args = []
+        if not kwargs:
+            kwargs = {}
+        return func(*args, **kwargs)
+    func.apply_async = apply_async
+    return func
 
 
 # https://djrill.readthedocs.org/en/v1.4/usage/sending_mail/#mandrill-specific-options
