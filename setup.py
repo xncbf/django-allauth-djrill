@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 
 VERSION = __import__('allauth_djrill').__version__
-github_url = 'https://github.com/obsidiancard/django-allauth-djrill/'
+github_url = 'https://github.com/polejak/django-allauth-djrill'
 
 setup(
     name='django-allauth-djrill',
