@@ -8,6 +8,8 @@ from .tasks import send_mandrill_template_mail
 
 import logging
 
+logger = logging.getLogger(__name__)
+
 DJRILL_TEMPLATE_MAP = {
     'account/email/email_confirmation': 'email_confirmation',
     'account/email/email_confirmation_welcome': 'email_confirmation_welcome',
@@ -48,5 +50,8 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
                 'global_merge_vars': merge_vars,
                 'from_email': from_email
             })
+            logger.debug("Data sent: template: {} to: {} global_merge_vars: {} from_email: {}"
+                         .format(mandrill_template, email, merge_vars, from_email))
+
         else:
             super(DjrillAccountAdapter, self).send_mail(template_prefix, email, context)
