@@ -20,7 +20,7 @@ Amend your `INSTALLED_APPS` setting::
 
     INSTALLED_APPS = (
         ...,
-        'allauth_djrill',
+        'allauth_mandrill',
     )
 
 Ensure that your `EMAIL_BACKEND` is set up to use Djrill::
@@ -29,12 +29,12 @@ Ensure that your `EMAIL_BACKEND` is set up to use Djrill::
 
 Switch your allauth account adapter::
 
-    ACCOUNT_ADAPTER = 'allauth_djrill.adapter.DjrillAccountAdapter'
+    ACCOUNT_ADAPTER = 'allauth_mandrill.adapter.DjrillAccountAdapter'
 
 If you wish to customize the names of the templates which are called in Mandrill's system, you can edit the
-`ALLAUTH_DJRILL_TEMPLATES` setting. The defaults are::
+`ALLAUTH_MANDRILL_TEMPLATES` setting. The defaults are::
 
-    ALLAUTH_DJRILL_TEMPLATES = {
+    ALLAUTH_MANDRILL_TEMPLATES = {
         'account/email/email_confirmation': 'email_confirmation',
         'account/email/email_confirmation_welcome': 'email_confirmation_welcome',
         'account/email/email_confirmation_signup': 'email_confirmation_signup',

@@ -22,7 +22,7 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
 
     def __init__(self, *args, **kwargs):
         template_map = DJRILL_TEMPLATE_MAP
-        overrides = getattr(settings, 'ALLAUTH_DJRILL_TEMPLATES', {})
+        overrides = getattr(settings, 'ALLAUTH_MANDRILL_TEMPLATES', {})
         template_map.update(overrides)
         self._template_map = template_map
         super(DjrillAccountAdapter, self).__init__(*args, **kwargs)
