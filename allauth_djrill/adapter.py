@@ -34,7 +34,7 @@ class DjrillAccountAdapter(DefaultAccountAdapter):
             mandrill_template = self._template_map[template_prefix]
             merge_vars = {}
             for key, value in six.iteritems(context):
-                if key == 'current_site':
+                if key in ['current_site', 'request']:
                     # This will always be in the context, but we don't want to pass it along
                     continue
                 if key == 'user':
