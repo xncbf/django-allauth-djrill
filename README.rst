@@ -1,6 +1,8 @@
 =====================
-django-allauth-djrill
+django-allauth-mandrill
 =====================
+
+Since existing repositories are no longer being managed, So it is Hard fork for management.
 
 This package provides a `django-allauth`_ account adapter for sending email utilizing templates stored in `Mandrill`_,
 thanks to the `Djrill`_ package.
@@ -10,11 +12,11 @@ Installation
 
 To install the latest release::
 
-    pip install django-allauth-djrill
+    pip install django-allauth-mandrill
 
 Alternatively, to install the latest development version::
 
-    pip install https://github.com/obsidiancard/django-allauth-djrill/tarball/master
+    pip install https://github.com/xncbf/django-allauth-mandrill/tarball/master
 
 Amend your `INSTALLED_APPS` setting::
 
