@@ -3,6 +3,7 @@ from __future__ import absolute_import, unicode_literals
 from django.core.mail import EmailMessage
 from django.utils import six
 
+
 # Emulate apply_async, in the case that celery isn't installed
 def shared_task(func):
     def apply_async(args=None, kwargs=None, task_id=None, producer=None, link=None, link_error=None,
