@@ -2,7 +2,7 @@
 django-allauth-mandrill
 =====================
 
-Since existing repositories are no longer being managed, So it is Hard fork for management.
+Since existing repositoriy is no longer being managed, So it is Hard fork for management.
 
 This package provides a `django-allauth`_ account adapter for sending email utilizing templates stored in `Mandrill`_,
 thanks to the `Djrill`_ package.
