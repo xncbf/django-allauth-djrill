@@ -2,10 +2,10 @@ from setuptools import find_packages, setup
 
 
 VERSION = __import__('allauth_djrill').__version__
-github_url = 'https://github.com/xncbf/django-allauth-djrill'
+github_url = 'https://github.com/xncbf/django-allauth-mandrill'
 
 setup(
-    name='django-allauth-djrill',
+    name='django-allauth-mandrill',
     version=VERSION,
     url=github_url,
     license='Apache',
